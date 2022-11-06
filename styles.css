@@ -53,3 +53,8 @@ table {
     display: flex;
     flex-direction: column;
 }
+
+.error-display p {
+    background-color: #fff;
+    margin: 10%;
+}

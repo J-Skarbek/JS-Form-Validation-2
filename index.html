@@ -11,22 +11,24 @@
     <div class="main-content">
         <form action="file:///Users/johnskarbek/Desktop/TOP/JS-Form-Validation-2/index.html" novalidate method="post" class="form-body">
             <label for="first_name">First Name:</label>
-            <input type="text" name="first_name" id="first-name" required>
+            <input type="text" name="first_name" id="first-name" maxlength="25" required>
             <label for="last_name">Last Name:</label>
-            <input type="text" name="last_name" id="last-name" required>
+            <input type="text" name="last_name" id="last-name" maxlength="40" required>
             <label for="email_address">Email:</label>
-            <input type="email" name="email_address" id="email" required>
+            <input type="email" name="email_address" id="email" maxlength="40" required>
             <label for="county_of_origin">Country:</label>
-            <input type="text" name="country_of_origin" id="country" required>
+            <input type="text" name="country_of_origin" id="country" maxlength="65"required>
             <label for="zip_code">ZIP Code:</label>
-            <input type="number" name="zip_code" id="zip-code" required>
+            <input type="number" name="zip_code" id="zip-code" maxlength="10" required>
             <label for="password">Enter Password:</label>
-            <input type="password" name="password" id="password" required>
+            <input type="password" name="password" id="password" pattern="^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}$" minlength="10" maxlength="50" required>
             <label for="verify_password">Verfiy Password:</label>
-            <input type="password" name="verify_password" id="verify-password" required>
+            <input type="password" name="verify_password" id="verify-password" pattern="^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}$" minlength="10" maxlength="50" required>
             <button type="button" id="submit">Submit</button>
         </form>
-        <p>This is a test.</p>
+        <div class="error-display">
+            <p>Test error display...</p>
+        </div>
     </div>
     
 </body>
