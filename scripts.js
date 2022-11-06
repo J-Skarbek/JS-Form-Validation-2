@@ -1,0 +1,7 @@
+const firstName = document.getElementById('first-name')
+const lastName = document.getElementById('last-name')
+const email = document.getElementById('email')
+const country = document.getElementById('country')
+const zipCode = document.getElementById('zip-code')
+const password = document.getElementById('password')
+const verifyPassword = document.getElementById('verify-password')
