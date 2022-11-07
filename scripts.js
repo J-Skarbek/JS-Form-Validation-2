@@ -1,12 +1,13 @@
-const firstName = document.getElementById('first-name')
-const lastName = document.getElementById('last-name')
-const email = document.getElementById('email')
-const country = document.getElementById('country')
-const zipCode = document.getElementById('zip-code')
-const password = document.getElementById('password')
-const verifyPassword = document.getElementById('verify-password')
-const submitBtn = document.getElementById('submit')
-const errorDisplay = document.querySelector('.error-display p')
+const firstName = document.getElementById('first-name');
+const lastName = document.getElementById('last-name');
+const email = document.getElementById('email');
+const country = document.getElementById('country');
+const zipCode = document.getElementById('zip-code');
+const password = document.getElementById('password');
+const verifyPassword = document.getElementById('verify-password');
+const submitBtn = document.getElementById('submit');
+const errorDisplay = document.querySelector('.error-display p');
+const form = document.querySelector('.form-body');
 
 const inputError = () => {
   if (firstName.validity.valueMissing) {
@@ -18,14 +19,14 @@ const inputError = () => {
   errorDisplay.className = 'error active'
 }
 
-// const checkFirstName = () => {
-//   if (firstName.checkValidity()) {
-//     errorDisplay.textContent = 'test';
-//     console.log('good to go');
-//   } else {
-//     inputError();
-//   }
-// }
+const checkFirstName = () => {
+  if (firstName.checkValidity()) {
+    errorDisplay.textContent = 'test';
+    console.log('good to go');
+  } else {
+    inputError();
+  }
+}
 
 firstName.addEventListener('input', () => {
   if (firstName.validity.valid) {
@@ -36,26 +37,12 @@ firstName.addEventListener('input', () => {
   }
 })
 
-// firstName.addEventListener('input', () => {
-//   if (firstName.valid) {
-//     errorDisplay.textContent = '';
-//   } else {
+// form.addEventListener('submit', (e) => {
+//   if (!firstName.validity.valid) {
 //     inputError();
-//   }
-  // firstName.setCustomValidity('');
-  // firstName.checkValidity();
-// });
-
-// firstName.addEventListener('invalid', () => {
-//   if (firstName.valueMissing) {
-//     firstName.setCustomValidity('Enter your first name.')
-//     errorDisplay.textContent = 'you did not enter your first name.'
-//   } else if (!firstName.patternMismatch) {
-//     console.log(firstName.setCustomValidity('First Names should only include letters.'))
-//   }
+//     e.preventDefault();
+//   } 
 // })
-
-
 
 // const validityCheck = () => {
 //   if (!firstName.checkValidity()) {
@@ -85,7 +72,5 @@ firstName.addEventListener('input', () => {
 //     errorDisplay.textContent = 'The passwords provided do not match.'
 //   }
 // }
-
-// submitBtn.addEventListener('click', validityCheck)
 
 submitBtn.addEventListener('click', checkFirstName);
