@@ -8,27 +8,33 @@ const verifyPassword = document.getElementById('verify-password')
 const submitBtn = document.getElementById('submit')
 const errorDisplay = document.querySelector('.error-display p')
 
-// const validityCheck = () => {
-//   if ((!firstName.checkValidity()) || (!lastName.checkValidity()) || (!email.checkValidity()) || (!country.checkValidity()) || (!zipCode.checkValidity()) || (!password.checkValidity()) || (!verifyPassword.checkValidity())) {
-//     console.log('there are problems here.')
-//     errorDisplay.textContent = 'Problems have been detected.'
-//   }
-// }
-
 const inputError = () => {
   if (firstName.validity.valueMissing) {
     errorDisplay.textContent = 'You need to enter your first name.'
+  } else if (firstName.validity.patternMismatch) {
+    errorDisplay.textContent = 'The first name should only contain letters.'
   }
+
+  errorDisplay.className = 'error active'
 }
 
-const checkFirstName = () => {
-  if (firstName.checkValidity()) {
-    errorDisplay.textContent = 'test';
-    console.log('good to go');
+// const checkFirstName = () => {
+//   if (firstName.checkValidity()) {
+//     errorDisplay.textContent = 'test';
+//     console.log('good to go');
+//   } else {
+//     inputError();
+//   }
+// }
+
+firstName.addEventListener('input', () => {
+  if (firstName.validity.valid) {
+    firstName.textContent = '';
+    firstName.className = 'error';
   } else {
     inputError();
   }
-}
+})
 
 // firstName.addEventListener('input', () => {
 //   if (firstName.valid) {
@@ -40,14 +46,14 @@ const checkFirstName = () => {
   // firstName.checkValidity();
 // });
 
-firstName.addEventListener('invalid', () => {
-  if (firstName.valueMissing) {
-    firstName.setCustomValidity('Enter your first name.')
-    errorDisplay.textContent = 'you did not enter your first name.'
-  } else if (!firstName.patternMismatch) {
-    console.log(firstName.setCustomValidity('First Names should only include letters.'))
-  }
-})
+// firstName.addEventListener('invalid', () => {
+//   if (firstName.valueMissing) {
+//     firstName.setCustomValidity('Enter your first name.')
+//     errorDisplay.textContent = 'you did not enter your first name.'
+//   } else if (!firstName.patternMismatch) {
+//     console.log(firstName.setCustomValidity('First Names should only include letters.'))
+//   }
+// })
 
 
 
