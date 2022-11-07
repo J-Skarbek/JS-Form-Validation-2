@@ -58,3 +58,12 @@ table {
     background-color: #fff;
     margin: 10%;
 }
+
+input:invalid {
+    border-color: #900;
+    background-color: #fdd;
+  }
+  
+  input:focus:invalid {
+    outline: none;
+  }
