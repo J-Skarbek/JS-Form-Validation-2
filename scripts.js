@@ -66,8 +66,62 @@ const checkFirstName = () => {
 
 firstName.addEventListener('input', () => {
   if (firstName.validity.valid) {
-    firstName.textContent = '';
+    errorDisplay.textContent = '';
     firstName.className = 'error';
+  } else {
+    inputError();
+  }
+})
+
+lastName.addEventListener('input', () => {
+  if (lastName.validity.valid) {
+    errorDisplay.textContent = '';
+    lastName.className = 'error';
+  } else {
+    inputError();
+  }
+})
+
+email.addEventListener('input', () => {
+  if (email.validity.valid) {
+    errorDisplay.textContent = '';
+    email.className = 'error';
+  } else {
+    inputError();
+  }
+})
+
+country.addEventListener('input', () => {
+  if (country.validity.valid) {
+    errorDisplay.textContent = '';
+    firstName.className = 'error';
+  } else {
+    inputError();
+  }
+})
+
+zipCode.addEventListener('input', () => {
+  if (zipCode.validity.valid) {
+    errorDisplay.textContent = '';
+    zipCode.className = 'error';
+  } else {
+    inputError();
+  }
+})
+
+password.addEventListener('input', () => {
+  if (password.validity.valid) {
+    errorDisplay.textContent = '';
+    password.className = 'error';
+  } else {
+    inputError();
+  }
+})
+
+verifyPassword.addEventListener('input', () => {
+  if (verifyPassword.validity.valid) {
+    errorDisplay.textContent = '';
+    verifyPassword.className = 'error';
   } else {
     inputError();
   }
