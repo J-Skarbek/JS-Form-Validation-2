@@ -16,11 +16,47 @@ const inputError = () => {
     errorDisplay.textContent = 'The first name should only contain letters.'
   }
 
+  if (lastName.validity.valueMissing) {
+    errorDisplay.textContent = 'You need to enter your last name.'
+  } else if (lastName.validity.patternMismatch) {
+    errorDisplay.textContent = 'The last name should only contain letters.'
+  }
+
+  if (email.validity.valueMissing) {
+    errorDisplay.textContent = 'You need to enter your email address'
+  } else if (lastName.validity.typeMismatch) {
+    errorDisplay.textContent = 'The email address should follow the format of "example@example.com".'
+  }
+
+  if (country.validity.valueMissing) {
+    errorDisplay.textContent = 'You need to enter your country.'
+  } else if (lastName.validity.patternMismatch) {
+    errorDisplay.textContent = 'The country should only contain letters.'
+  }
+
+  if (zipCode.validity.valueMissing) {
+    errorDisplay.textContent = 'You need to enter your ZIP code.'
+  } else if (zipCode.validity.patternMismatch) {
+    errorDisplay.textContent = 'The ZIP code should contain only numbers.'
+  }
+
+  if (password.validity.valueMissing) {
+    errorDisplay.textContent = 'You need to create a password.'
+  } else if (password.validity.patternMismatch) {
+    errorDisplay.textContent = 'The password is not in the correct format.'
+  }
+
+  if (verifyPassword.validity.valueMissing) {
+    errorDisplay.textContent = 'Re-enter your password'
+  } else if (verifyPassword.validity.patternMismatch) {
+    errorDisplay.textContent = 'The password is not in the correct format.'
+  }
+
   errorDisplay.className = 'error active'
 }
 
 const checkFirstName = () => {
-  if (firstName.checkValidity()) {
+  if (firstName.checkValidity() && lastName.checkValidity() && email.checkValidity() && country.checkValidity() && zipCode.checkValidity() && password.checkValidity() && verifyPassword()) {
     errorDisplay.textContent = 'test';
     console.log('good to go');
   } else {
@@ -36,41 +72,5 @@ firstName.addEventListener('input', () => {
     inputError();
   }
 })
-
-// form.addEventListener('submit', (e) => {
-//   if (!firstName.validity.valid) {
-//     inputError();
-//     e.preventDefault();
-//   } 
-// })
-
-// const validityCheck = () => {
-//   if (!firstName.checkValidity()) {
-//     errorDisplay.textContent = 'The first name entered is invalid.'
-//   }
-
-//   if (!lastName.checkValidity()) {
-//     errorDisplay.textContent = 'The last name entered is invalid.'
-//   }
-
-//   if (!email.checkValidity()) {
-//     errorDisplay.textContent = 'The email entered is invalid. It should be in the format of "example@example.com".'
-//   }
-
-//   if (!country.checkValidity()) {
-//     errorDisplay.textContent = 'The country entered is not valid.'
-//   }
-
-//   if (!zipCode.checkValidity()) {
-//     errorDisplay.textContent = 'The ZIP code entered is not valid.'
-//   }
-
-//   if (!password.checkValidity()) {
-//     errorDisplay.textContent = 'The entered password does not include all necessary elements.'
-//   }
-//   if (!verifyPassword.checkValidity()) {
-//     errorDisplay.textContent = 'The passwords provided do not match.'
-//   }
-// }
 
 submitBtn.addEventListener('click', checkFirstName);
